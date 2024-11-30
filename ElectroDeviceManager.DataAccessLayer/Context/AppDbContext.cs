@@ -5,7 +5,6 @@ namespace ElectronicDeviceManager.DataAccessLayer.Context;
 
 public class AppDbContext:DbContext
 {
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(DbConfiguration.GetConnectionString());
