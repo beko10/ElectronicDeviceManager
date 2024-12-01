@@ -16,5 +16,9 @@ namespace ElectronicDeviceManager.EntityLayer.Models
          public Employee Employee
         bire-bir ilişki
          */
+
+        //Bire bir ilişki kuruldu
+        public Guid DeviceAssignmentId { get; set; }
+        public DeviceAssignment? DeviceAssignment { get; set; }
     }
 }
