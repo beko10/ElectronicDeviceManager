@@ -5,15 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ElectronicDeviceManager.DataAccessLayer.Abstraction
+namespace ElectronicDeviceManager.BusinessLayer.Abstract
 {
-    public interface IRepository<T> where T : Entity
+    public interface IManager<T> where T : Entity
     {
         void Create(T entity);
-        void Update(T entity);
         void Delete(Guid Id);
+        void Update(T entity);
         IEnumerable<T> GetAll();
-        T GetById(Guid id);
-        
+        T GetById(Guid Id);
     }
 }
