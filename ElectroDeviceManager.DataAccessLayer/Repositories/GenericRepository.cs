@@ -26,9 +26,9 @@ namespace ElectronicDeviceManager.DataAccessLayer.Repositories
             _context.SaveChanges();
         }
 
-        public void Delete(T entity)
+        public void Delete(Guid Id)
         {
-            _dbSet.Remove(entity);
+            _dbSet.Remove(GetById(Id));
             _context.SaveChanges();
         }
 
