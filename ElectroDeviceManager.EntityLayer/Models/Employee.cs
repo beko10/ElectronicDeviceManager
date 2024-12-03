@@ -9,8 +9,7 @@ namespace ElectronicDeviceManager.EntityLayer.Models
 {
     public class Employee:Entity
     {
-        public int Id { get; set; }
-        public int DepartmentId { get; set; }
+        public Guid DepartmentId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
