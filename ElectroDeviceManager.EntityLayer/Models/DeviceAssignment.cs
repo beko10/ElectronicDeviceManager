@@ -15,11 +15,11 @@ namespace ElectronicDeviceManager.EntityLayer.Models
         
         public DateTime AssignedDate { get; set; } //teslim tarihi
 
-        /*
-         Device ile bire bir ilişki kurulmalı.
+      
+       
          public Guid DeviceId { get; set; }
          public Device? Device { get; set; }
-         */
+        
     }
 
 }

@@ -13,11 +13,11 @@ namespace ElectronicDeviceManager.EntityLayer.Models
         public string? Vendor { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        
-        /*
-        public Device DeviceID
-        public Device Device
-        bire-çok ilişki
-         */
+      
+      
+        public Guid DeviceID { get; set; }
+        public Device Device { get; set; }
+
+
     }
 }
