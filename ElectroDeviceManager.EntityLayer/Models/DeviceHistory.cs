@@ -10,12 +10,12 @@ namespace ElectronicDeviceManager.EntityLayer.Models
 {
     public class DeviceHistory : Entity
     {
-        public int DeviceHistoryId { get; set; }
+     
         public Guid DeviceId { get; set; }   
-        public Device Device { get; set; }
+        public Device? Device { get; set; }
         public string? DeviceName { get; set; }
         public string? Action { get; set; }
-        public DateTime date{ get; set; }
+        public DateTime DeliveryDate{ get; set; }
 
     }
 

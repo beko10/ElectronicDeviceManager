@@ -15,8 +15,10 @@ namespace ElectronicDeviceManager.EntityLayer.Models
         public string? SerialNumber { get; set; }
         public string? DeviceDescription { get; set; }
         public string? DeviceType { get; set; }
-        public SoftwareLicense  softwareLicense  { get; set; }
-        public DeviceAssignment deviceAssignment { get; set; }
+        public Guid SoftwareLicenseId { get; set; }
+        public SoftwareLicense? softwareLicense  { get; set; }
+        public Guid DeviceAssignmentId { get; set; }
+        public DeviceAssignment? deviceAssignment { get; set; }
     
     }
 
