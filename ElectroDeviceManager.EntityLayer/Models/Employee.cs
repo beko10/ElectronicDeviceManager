@@ -21,6 +21,8 @@ namespace ElectronicDeviceManager.EntityLayer.Models
         public DateTime CreatedDate { get; set; }
 
         // Navigation Properties
+
+
         public virtual Department Department { get; set; }
         public virtual ICollection<DeviceAssignment> DeviceAssignments { get; set; }
     }
