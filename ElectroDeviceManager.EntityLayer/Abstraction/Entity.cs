@@ -10,6 +10,6 @@ namespace ElectronicDeviceManager.EntityLayer.Abstraction
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public bool IsActive { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
     }
 }

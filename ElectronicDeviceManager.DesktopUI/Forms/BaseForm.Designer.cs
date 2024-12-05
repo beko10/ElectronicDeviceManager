@@ -28,71 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btn_Save = new Button();
-            btn_Delete = new Button();
-            btn_Update = new Button();
-            btn_List = new Button();
+            btnEkle = new Button();
+            btnSil = new Button();
+            btnGüncelle = new Button();
+            btnListele = new Button();
             SuspendLayout();
             // 
-            // btn_Save
+            // btnEkle
             // 
-            btn_Save.Location = new Point(12, 21);
-            btn_Save.Name = "btn_Save";
-            btn_Save.Size = new Size(75, 23);
-            btn_Save.TabIndex = 0;
-            btn_Save.Text = "Ekle";
-            btn_Save.UseVisualStyleBackColor = true;
-            btn_Save.Click += btn_Save_Click;
+            btnEkle.Location = new Point(12, 27);
+            btnEkle.Name = "btnEkle";
+            btnEkle.Size = new Size(75, 23);
+            btnEkle.TabIndex = 0;
+            btnEkle.Text = "Ekle";
+            btnEkle.UseVisualStyleBackColor = true;
+            btnEkle.Click += btn_Save_Click;
             // 
-            // btn_Delete
+            // btnSil
             // 
-            btn_Delete.Location = new Point(131, 21);
-            btn_Delete.Name = "btn_Delete";
-            btn_Delete.Size = new Size(75, 23);
-            btn_Delete.TabIndex = 1;
-            btn_Delete.Text = "Sil";
-            btn_Delete.UseVisualStyleBackColor = true;
-            btn_Delete.Click += btn_Delete_Click;
+            btnSil.Location = new Point(131, 27);
+            btnSil.Name = "btnSil";
+            btnSil.Size = new Size(75, 23);
+            btnSil.TabIndex = 1;
+            btnSil.Text = "Sil";
+            btnSil.UseVisualStyleBackColor = true;
+            btnSil.Click += btn_Delete_Click;
             // 
-            // btn_Update
+            // btnGüncelle
             // 
-            btn_Update.Location = new Point(263, 21);
-            btn_Update.Name = "btn_Update";
-            btn_Update.Size = new Size(75, 23);
-            btn_Update.TabIndex = 2;
-            btn_Update.Text = "Güncelle";
-            btn_Update.UseVisualStyleBackColor = true;
-            btn_Update.Click += btn_Update_Click;
+            btnGüncelle.Location = new Point(263, 27);
+            btnGüncelle.Name = "btnGüncelle";
+            btnGüncelle.Size = new Size(75, 23);
+            btnGüncelle.TabIndex = 2;
+            btnGüncelle.Text = "Güncelle";
+            btnGüncelle.UseVisualStyleBackColor = true;
+            btnGüncelle.Click += btn_Update_Click;
             // 
-            // btn_List
+            // btnListele
             // 
-            btn_List.Location = new Point(382, 21);
-            btn_List.Name = "btn_List";
-            btn_List.Size = new Size(75, 23);
-            btn_List.TabIndex = 3;
-            btn_List.Text = "Listele";
-            btn_List.UseVisualStyleBackColor = true;
-            btn_List.Click += btn_List_Click;
+            btnListele.Location = new Point(382, 27);
+            btnListele.Name = "btnListele";
+            btnListele.Size = new Size(75, 23);
+            btnListele.TabIndex = 3;
+            btnListele.Text = "Listele";
+            btnListele.UseVisualStyleBackColor = true;
+            btnListele.Click += btn_List_Click;
             // 
             // BaseForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btn_List);
-            Controls.Add(btn_Update);
-            Controls.Add(btn_Delete);
-            Controls.Add(btn_Save);
+            Controls.Add(btnListele);
+            Controls.Add(btnGüncelle);
+            Controls.Add(btnSil);
+            Controls.Add(btnEkle);
             Name = "BaseForm";
             Text = "BaseForm";
+            Load += BaseForm_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button btn_Save;
-        private Button btn_Delete;
-        private Button btn_Update;
-        private Button btn_List;
+        private Button btnEkle;
+        private Button btnSil;
+        private Button btnGüncelle;
+        private Button btnListele;
     }
 }

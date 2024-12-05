@@ -15,7 +15,8 @@ namespace ElectronicDeviceManager.BusinessLayer.Validators
             RuleFor(d=> d.DeviceName).NotEmpty().WithMessage("Bu alan boş geçilemez");
             RuleFor(d => d.SerialNumber).NotEmpty().WithMessage("Bu alan boş geçilemez"); 
             RuleFor(d => d.DeviceType).NotEmpty().WithMessage("Bu alan boş geçilemez"); 
-            RuleFor(d => d.DeviceAssignmentId).NotEmpty().WithMessage("Bu alan boş geçilemez"); 
+            //RuleFor(d => d.DeviceAssignmentId).NotEmpty().WithMessage("Bu alan boş geçilemez"); 
+            //Device tanımlarken atama yapmamıza gerek yok(?)
         }
     }
 }
