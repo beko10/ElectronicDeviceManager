@@ -12,10 +12,10 @@ namespace ElectronicDeviceManager.EntityLayer.Models
         public string? UserName { get; set; }
         public string? RoleName { get; set; }
 
-        /*public Employee EmployeeID
-         public Employee Employee
-        bire-bir ilişki
-         */
+        public Guid EmployeeID { get; set; }
+        public Employee? Employee { get; set; }
+      
+         
 
         //Bire bir ilişki kuruldu
         public Guid DeviceAssignmentId { get; set; }

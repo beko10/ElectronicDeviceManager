@@ -16,8 +16,10 @@ namespace ElectronicDeviceManager.EntityLayer.Models
       
       
         public Guid DeviceID { get; set; }
-        public Device Device { get; set; }
-
-
+        public Device? Device { get; set; }
+        public override string ToString()
+        {
+            return $"{DeviceID}, {LicenseName} {StartDate} - {EndDate} tarihlerine kadar lisanslandı";
+        }
     }
 }
