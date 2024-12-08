@@ -14,10 +14,11 @@ namespace ElectronicDeviceManager.EntityLayer.Models
         public string? Description { get; set; }
         public bool IsSolved { get; set; }
 
-        /*
-         Device ile düşünülmesi gereken?? bir ilişki kurulmalı.
-        public int DeviceId { get; set; }
-         */
+        
+         //Device ile düşünülmesi gereken?? bir ilişki kurulmalı.
+        public Guid DeviceId { get; set; }
+        public Device? Device { get; set; }
+
     }
 
 }

@@ -10,16 +10,12 @@ namespace ElectronicDeviceManager.EntityLayer.Models
     public class DeviceAssignment : Entity
     {
         //User ile bire bir ilişki kuruldu.
-        public Guid UserId { get; set; }
-        public User? User { get; set; }
-        
+        public Guid EmployeeId { get; set; }
+        public Employee? Employee { get; set; }
         public DateTime AssignedDate { get; set; } //teslim tarihi
+        public Guid DeviceId { get; set; }
+        public Device? Device { get; set; }
 
-      
-       
-         public Guid DeviceId { get; set; }
-         public Device? Device { get; set; }
-        
     }
 
 }
