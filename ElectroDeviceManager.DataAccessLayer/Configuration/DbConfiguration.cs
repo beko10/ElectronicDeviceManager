@@ -6,7 +6,7 @@ public class DbConfiguration
 {
     private static readonly string _connectionString;
 
-    static DbConfiguration()
+     static DbConfiguration()
     {
         _connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
     }
