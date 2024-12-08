@@ -13,10 +13,8 @@ namespace ElectronicDeviceManager.EntityLayer.Models
         public string? Description { get; set; }
 
 
-        /*
-         Device ile bire çok ilişki kurulacak.
-        public ICollection<Device> Devices {get; set;}s
-
-         */
+        
+         //Device ile bire çok ilişki kurulacak.
+        public ICollection<Device>? Devices {get; set;}
     }
 }

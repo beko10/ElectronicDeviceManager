@@ -9,8 +9,8 @@ namespace ElectronicDeviceManager.EntityLayer.Models
 {
     public class Department:Entity
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
 
         // Navigation Property
         public virtual ICollection<Employee> Employees { get; set; }

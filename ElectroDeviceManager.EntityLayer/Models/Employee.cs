@@ -17,8 +17,6 @@ namespace ElectronicDeviceManager.EntityLayer.Models
         public string? EmployeeNumber { get; set; }
         public string? Position { get; set; }
         public DateTime HireDate { get; set; }
-        public bool IsActive { get; set; }
-        public DateTime CreatedDate { get; set; }
 
         // Navigation Properties
 
