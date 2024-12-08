@@ -1,3 +1,5 @@
+using ElectronicDeviceManager.DesktopUI.Forms;
+
 namespace ElectronicDeviceManager.DesktopUI
 {
     internal static class Program

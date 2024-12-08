@@ -17,22 +17,27 @@ namespace ElectronicDeviceManager.DesktopUI.Forms
             InitializeComponent();
         }
 
-        protected void btn_Save_Click(object sender, EventArgs e)
+        protected virtual void btn_Save_Click(object sender, EventArgs e)
         {
 
         }
 
-        protected void btn_Delete_Click(object sender, EventArgs e)
+        protected virtual void btn_Delete_Click(object sender, EventArgs e)
         {
 
         }
 
-        protected void btn_Update_Click(object sender, EventArgs e)
+        protected virtual void btn_Update_Click(object sender, EventArgs e)
         {
 
         }
 
-        protected void btn_List_Click(object sender, EventArgs e)
+        protected virtual void btn_List_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BaseForm_Load(object sender, EventArgs e)
         {
 
         }
