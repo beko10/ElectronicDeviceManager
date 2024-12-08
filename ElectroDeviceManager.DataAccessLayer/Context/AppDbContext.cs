@@ -1,5 +1,7 @@
 ﻿using ElectronicDeviceManager.DataAccessLayer.Configuration;
+using ElectronicDeviceManager.EntityLayer.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 namespace ElectronicDeviceManager.DataAccessLayer.Context;
 
