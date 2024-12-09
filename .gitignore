@@ -361,7 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/ElectroDeviceManager.BusinessLayer/Concrete/DeviceService.cs
+
 /ElectroDeviceManager.BusinessLayer/Validators/DepartmentValidator.cs
 /ElectroDeviceManager.BusinessLayer/Validators/DeviceAssignmentValidator.cs
 /ElectroDeviceManager.BusinessLayer/Validators/DeviceCategoryValidator.cs
