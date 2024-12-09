@@ -44,7 +44,7 @@ namespace ElectronicDeviceManager.DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Department");
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.Device", b =>
@@ -55,6 +55,9 @@ namespace ElectronicDeviceManager.DataAccessLayer.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeviceCategoryId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DeviceDescription")
                         .HasColumnType("nvarchar(max)");
@@ -72,6 +75,8 @@ namespace ElectronicDeviceManager.DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DeviceCategoryId");
 
                     b.ToTable("Devices");
                 });
@@ -107,6 +112,60 @@ namespace ElectronicDeviceManager.DataAccessLayer.Migrations
                     b.ToTable("DeviceAssignments");
                 });
 
+            modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.DeviceCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DeviceCategoryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DeviceCategories");
+                });
+
+            modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.DeviceHistory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Action")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DeliveryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DeviceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("DeviceName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeviceId");
+
+                    b.ToTable("DeviceHistories");
+                });
+
             modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.Employee", b =>
                 {
                     b.Property<Guid>("Id")
@@ -116,10 +175,7 @@ namespace ElectronicDeviceManager.DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("DepartmentId1")
+                    b.Property<Guid?>("DepartmentId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
@@ -148,9 +204,40 @@ namespace ElectronicDeviceManager.DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DepartmentId1");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Employee");
+                });
+
+            modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.MaintenanceRecord", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("DeviceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsSolved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("MaintenanceDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeviceId");
+
+                    b.ToTable("MaintenanceRecords");
                 });
 
             modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.SoftwareLicense", b =>
@@ -185,7 +272,47 @@ namespace ElectronicDeviceManager.DataAccessLayer.Migrations
                     b.HasIndex("DeviceID")
                         .IsUnique();
 
-                    b.ToTable("SoftwareLicense");
+                    b.ToTable("SoftwareLicenses");
+                });
+
+            modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DeviceAssignmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EmployeeID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("RoleName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeviceAssignmentId");
+
+                    b.HasIndex("EmployeeID");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.Device", b =>
+                {
+                    b.HasOne("ElectronicDeviceManager.EntityLayer.Models.DeviceCategory", null)
+                        .WithMany("Devices")
+                        .HasForeignKey("DeviceCategoryId");
                 });
 
             modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.DeviceAssignment", b =>
@@ -207,15 +334,35 @@ namespace ElectronicDeviceManager.DataAccessLayer.Migrations
                     b.Navigation("Employee");
                 });
 
+            modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.DeviceHistory", b =>
+                {
+                    b.HasOne("ElectronicDeviceManager.EntityLayer.Models.Device", "Device")
+                        .WithMany()
+                        .HasForeignKey("DeviceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Device");
+                });
+
             modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.Employee", b =>
                 {
                     b.HasOne("ElectronicDeviceManager.EntityLayer.Models.Department", "Department")
                         .WithMany("Employees")
-                        .HasForeignKey("DepartmentId1")
+                        .HasForeignKey("DepartmentId");
+
+                    b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.MaintenanceRecord", b =>
+                {
+                    b.HasOne("ElectronicDeviceManager.EntityLayer.Models.Device", "Device")
+                        .WithMany("MaintenanceRecords")
+                        .HasForeignKey("DeviceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Department");
+                    b.Navigation("Device");
                 });
 
             modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.SoftwareLicense", b =>
@@ -229,6 +376,25 @@ namespace ElectronicDeviceManager.DataAccessLayer.Migrations
                     b.Navigation("Device");
                 });
 
+            modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.User", b =>
+                {
+                    b.HasOne("ElectronicDeviceManager.EntityLayer.Models.DeviceAssignment", "DeviceAssignment")
+                        .WithMany()
+                        .HasForeignKey("DeviceAssignmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ElectronicDeviceManager.EntityLayer.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DeviceAssignment");
+
+                    b.Navigation("Employee");
+                });
+
             modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.Department", b =>
                 {
                     b.Navigation("Employees");
@@ -236,9 +402,16 @@ namespace ElectronicDeviceManager.DataAccessLayer.Migrations
 
             modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.Device", b =>
                 {
+                    b.Navigation("MaintenanceRecords");
+
                     b.Navigation("deviceAssignment");
 
                     b.Navigation("softwareLicense");
+                });
+
+            modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.DeviceCategory", b =>
+                {
+                    b.Navigation("Devices");
                 });
 
             modelBuilder.Entity("ElectronicDeviceManager.EntityLayer.Models.Employee", b =>

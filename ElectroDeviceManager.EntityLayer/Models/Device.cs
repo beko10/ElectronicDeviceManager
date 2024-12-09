@@ -12,8 +12,12 @@ namespace ElectronicDeviceManager.EntityLayer.Models
         public SoftwareLicense? softwareLicense { get; set; }
         public DeviceAssignment? deviceAssignment { get; set; }
         public string DisplayInfo => $"{DeviceName} - {(IsActive ? "Aktif" : "Pasif")}";
+        
+        public override string ToString()
+        {
+            return $"{DeviceName} - {SerialNumber}";
+        }
     }    
-
-
+    
 
 }

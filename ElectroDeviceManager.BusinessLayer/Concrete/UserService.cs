@@ -14,6 +14,7 @@ namespace ElectronicDeviceManager.BusinessLayer.Concrete
         private readonly UserRepository uRepo;
         public UserService(UserRepository userRepo)
         {
+
             uRepo = userRepo;
         }
         public void Create(User entity)

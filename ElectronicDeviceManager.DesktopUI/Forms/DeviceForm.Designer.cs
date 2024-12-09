@@ -1,6 +1,6 @@
 ﻿namespace ElectronicDeviceManager.DesktopUI.Forms
 {
-    partial class DeviceForm
+    partial class DeviceForm : BaseForm
     {
         /// <summary>
         /// Required designer variable.

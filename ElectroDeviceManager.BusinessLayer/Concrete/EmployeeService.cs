@@ -13,6 +13,8 @@ namespace ElectronicDeviceManager.BusinessLayer.Concrete
     {
         private readonly EmployeeRepository _uRepo;
 
+
+
         public EmployeeService(EmployeeRepository uRepo)
         {
             _uRepo = uRepo;
