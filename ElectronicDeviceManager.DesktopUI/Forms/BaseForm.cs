@@ -40,6 +40,7 @@ namespace ElectronicDeviceManager.DesktopUI.Forms
         private void BaseForm_Load(object sender, EventArgs e)
         {
 
+
         }
     }
 }

@@ -11,10 +11,9 @@ namespace ElectronicDeviceManager.EntityLayer.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public bool IsActive { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public string DisplayInfo => $"{Name} - {(IsActive ? "Aktif" : "Pasif")}";
 
         // Navigation Property
-        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Employee>? Employees { get; set; }
     }
 }
