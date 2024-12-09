@@ -22,7 +22,7 @@ namespace ElectronicDeviceManager.DesktopUI.Forms
         private void DepartmentForm_Load(object sender, EventArgs e)
         {
             var stateList = new List<string> { "Aktif", "Pasif" };
-            cmbState.DataSource = stateList;
+            cmbState.DataSource = stateList; 
             GetList();
         }
         Department secilenItem;
