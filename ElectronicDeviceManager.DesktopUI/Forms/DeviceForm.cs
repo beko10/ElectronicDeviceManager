@@ -171,4 +171,14 @@ namespace ElectronicDeviceManager.DesktopUI.Forms
             }
         }
     }
+
+    internal class DeviceService
+    {
+        private DeviceRepository deviceRepository;
+
+        public DeviceService(DeviceRepository deviceRepository)
+        {
+            this.deviceRepository = deviceRepository;
+        }
+    }
 }

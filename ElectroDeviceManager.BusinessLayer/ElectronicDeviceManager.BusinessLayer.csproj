@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Concrete\DeviceService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ElectroDeviceManager.DataAccessLayer\ElectronicDeviceManager.DataAccessLayer.csproj" />
   </ItemGroup>
 
